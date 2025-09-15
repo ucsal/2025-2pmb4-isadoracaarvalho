@@ -18,6 +18,22 @@ public class App {
             frame.setLayout(new BorderLayout());
             frame.add(panel, BorderLayout.CENTER);
 
+            JPanel bottomPanel = new JPanel();
+            JButton colorButton = new JButton("COR");
+
+            colorButton.addActionListener(e -> {
+                Color newColor = JColorChooser.showDialog(frame, "Escolha uma cor", Color.BLUE);
+                if (newColor != null) {
+                    panel.setShapeColor(newColor);
+                }
+            });
+
+            bottomPanel.add(colorButton);
+
+            frame.setLayout(new BorderLayout());
+            frame.add(bottomPanel, BorderLayout.SOUTH);
+            frame.add(panel, BorderLayout.CENTER);
+
             frame.setSize(900, 600);
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);

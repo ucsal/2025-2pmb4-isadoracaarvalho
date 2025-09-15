@@ -15,8 +15,10 @@ class DrawingPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
     private static final int DEFAULT_SIZE = 60;
+    private static final Color DEFAULT_COLOR = new Color(30,144,255);
     private final List<Shape> shapes = new ArrayList<>();
     private String shapeName = "circle";
+    private Color shapeColor = DEFAULT_COLOR ;
 
     DrawingPanel() {
         
@@ -30,7 +32,8 @@ class DrawingPanel extends JPanel {
                         shapeName,
                         e.getX(),
                         e.getY(),
-                        DEFAULT_SIZE
+                        DEFAULT_SIZE,
+                        shapeColor
                 );
 
                 if(shape != null) {
@@ -59,6 +62,10 @@ class DrawingPanel extends JPanel {
         }
 
         g2.dispose();
+    }
+
+    public void setShapeColor(Color color) {
+        this.shapeColor = color;
     }
 
 }
